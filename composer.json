@@ -1,5 +1,5 @@
 {
-    "name": "techroute/press",
+    "name": "Package/Development",
     "description": "This is package.",
     "license": "MIT",
     "authors": [
@@ -11,5 +11,13 @@
     "require": {},
     "require-dev": {
         "orchestra/testbench": "^4.4"
+    },
+    "autoload": {
+        "Package\\Development\\" : "src/"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Package\\Development\\tests" : "tests/"
+        }
     }
 }
