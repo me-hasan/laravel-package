@@ -1,0 +1,15 @@
+{
+    "name": "techroute/press",
+    "description": "This is package.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "khayrulhasan",
+            "email": "khayrul.web@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "^4.4"
+    }
+}
