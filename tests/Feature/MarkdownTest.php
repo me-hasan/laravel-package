@@ -12,10 +12,16 @@ class MarkdownTest extends TestCase
 
 
 
-        public function test_experiment()
-        {
-            $dd = new MarkdownParse;
-            $dd->parser('# dfdfd');
+    public function test_experiment()
+    {
 
-        }
+        $this->assertEquals('<h1>hi tester!</h1>', MarkdownParse::parser('# hi tester!'));
+
+    }
+
+    public function testsimple_parse_down_is()
+    {
+        $this->assertEquals('<h1>hi tester!</h1>', MarkdownParse::parser('# hi tester!'));
+
+    }
 }

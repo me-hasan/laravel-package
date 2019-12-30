@@ -9,11 +9,10 @@ use Parsedown;
 class MarkdownParse
 {
 
-    public function parser($string)
+    public static function parser($string)
     {
-        $parsedown = new Parsedown();
 
-        return $parsedown->text($string);
+        return Parsedown::instance()->text($string);
     }
 
 }

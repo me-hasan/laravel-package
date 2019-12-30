@@ -1,5 +1,5 @@
 {
-    "name": "Package/Development",
+    "name": "package/development",
     "description": "This is package.",
     "license": "MIT",
     "authors": [
@@ -8,16 +8,20 @@
             "email": "khayrul.web@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "erusev/parsedown": "^1.7"
+    },
     "require-dev": {
         "orchestra/testbench": "^4.4"
     },
     "autoload": {
-        "Package\\Development\\" : "src/"
+        "psr-4": {
+            "Package\\Development\\" : "src/"
+        }
     },
     "autoload-dev": {
         "psr-4": {
-            "Package\\Development\\tests" : "tests/"
+            "Package\\Development\\tests\\" : "tests/"
         }
     }
 }
