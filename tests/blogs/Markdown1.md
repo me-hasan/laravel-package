@@ -1,6 +1,6 @@
 ---
-title : My title
-description : Description here
+title: My title
+description: Description here
 ---
 
 Blog Post body here
