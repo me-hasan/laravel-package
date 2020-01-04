@@ -15,8 +15,6 @@ class PostsTable extends Migration{
             $table->string('identifier')->index();
             $table->string('slug')->unique()->index();
             $table->string('title');
-            $table->string('body');
-            $table->text('extra');
             $table->timestamps();
 
             $table->index('crated_at');

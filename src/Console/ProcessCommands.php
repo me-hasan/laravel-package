@@ -5,10 +5,10 @@ namespace Package\Development\Console;
 
 
 
+
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
-use Package\Development\Post;
-use Package\Development\PressFileParser;
+use Package\Development\Press;
+use Package\Development\Repositories\PostRepository;
 
 class ProcessCommands extends Command
 {
@@ -16,24 +16,22 @@ class ProcessCommands extends Command
 
     protected $description = 'Update blog post';
 
-    public function handle()
+    public function handle(PostRepository $repository)
     {
 
-        if(is_null(config('press'))){
+        if(Press::configNotPublished()){
             $this->warn('Please Publish the config file by running \'php artisan vendor:publish --tag=press-config\'');
         }
 
-        $files = File::files(config('press.path'));
+        try {
+            $posts = Press::driver()->fetchPosts();
 
-        foreach ($files as $file)
-        {
-            $post = (new PressFileParser($file->getPathname()))->getData();
+            foreach ($posts as $post){
+                $repository->save($post);
+            }
+        } catch (\Exception $e){
+            $this->error($e->getMessage());
         }
 
-        Post::create([
-            'identifier' => str_random(),
-            'slug' => str_slug($post['title']),
-            'title' => $post['title'],
-            ]);
     }
 }

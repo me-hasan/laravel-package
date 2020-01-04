@@ -1,5 +1,14 @@
 <?php
 
 return [
-    'path' => 'blogs'
+    'driver' => 'file',
+
+    'file'=> [
+        'path' => 'blogs'
+    ],
+    'database' => [
+        'table' => 'post'
+    ],
+
+    'path' => 'new'
 ];
